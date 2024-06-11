@@ -6,7 +6,7 @@
 body{
     background-image: url('https://img.freepik.com/free-vector/technology-background_23-2148123085.jpg?w=1380&t=st=1717704577~exp=1717705177~hmac=f4d688d48b2fe102cadda946b87242cf381dbebb376eaa83c1d99b8249c40d64');
     background-repeat: no-repeat;
-    background-size: auto;
+    background-size: cover;
     max-height: 100%;
 }
 
@@ -25,7 +25,7 @@ body{
 .outer-border {
         position: relative;
         width:100%;
-        height: 50px;
+        height: 75px;
         background-color: rgb(0, 0, 50);
         display:flex;
         color:white;
@@ -33,7 +33,7 @@ body{
         align-items: center;
         font-size:  20px;
         flex-direction: column;
-        line-height: 25px;
+        line-height: 35px;
 }
 
 .global-border {
@@ -44,6 +44,7 @@ body{
     border-radius: 15px;
     margin: 33.5%;
     margin-top: 3%;
+    margin-bottom: 25px;
     background-color: white;
     padding: 2%;
     line-height: 35px;
@@ -87,5 +88,5 @@ hr{
         font-size:  20px;
         flex-direction: column;
         line-height: 25px;
-        
+        height: 150px;
 }
