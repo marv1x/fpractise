@@ -1,3 +1,4 @@
+/* Классы */
 *{
     margin: 0;
     padding:0;
@@ -69,7 +70,7 @@ body{
     padding: 1%;
     line-height: 35px;
     width: 2500px;
-    margin-right:150px;
+    margin-right:150px;     
 }
 
 
@@ -114,4 +115,26 @@ hr{
         flex-direction: column;
         line-height: 25px;
         height: 150px;
+}
+
+
+/* Айди */
+
+#header{
+    text-align: center;
+    
+}
+#header1{
+    text-align: center;
+    
+}
+
+#myButton{
+    margin-left: 150px;
+    height: 50px;
+    width: 250px;
+    background-color: green;
+    color:white;
+    font-size: 25px;
+    cursor: pointer;
 }
