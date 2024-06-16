@@ -4,6 +4,7 @@
         <meta charset="utf-8"> <!--Мета-тег. Кодировка страницы-->
         <title>Главная страница</title>
         <link rel="stylesheet" href="style.css">
+        <script src="script.js" defer></script>
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
@@ -21,7 +22,7 @@
             </header>
         <div class="global-border">
                 <div class="global-border-1">
-                    <h1> Работа с html, css </h1>
+                    <h1 id="header1"> Работа с html, css </h1>
                 <ol >
                 <!--Заголовоки-->
                 <li><h2>Работа с заголовками:</h2></li>
@@ -128,8 +129,47 @@
             </ol> 
             </div>
             <div class="global-border-2">
-        <H1>Работа с JavaScript</H1>
+                <H1 id="header">Работа с JavaScript</H1>
+                <button id="myButton">Нажми меня</button><br>
+                <input type="text" id="myInput" placeholder="Введите текст">
+                <p id="paragraph">Этот текст будет изменен</p>
             </div>
+            <script>
+                // Изменение контента определенного элемента
+                document.getElementById('header').textContent = "Работа с JavaScript";
+                // Добавление обработчиков на:
+                const button = document.getElementById('myButton');
+                const paragraph = document.getElementById('paragraph');
+                const input = document.getElementById('myInput');
+                // а) наведение мыши
+                paragraph.addEventListener('mouseover', () => {
+                    console.log('Мышь наведена на параграф');
+                });
+                // б) клик
+                button.addEventListener('click', (event) => {
+                    console.log('Кнопка нажата');
+                    // Предотвращение работы события
+                    event.preventDefault();
+                });
+                // в) снятие курсора мыши с элемента
+                paragraph.addEventListener('mouseout', () => {
+                    console.log('Мышь убрана с параграфа');
+                });
+                // г) фокус инпута
+                input.addEventListener('focus', () => {
+                    console.log('Инпут в фокусе');
+                });
+                // д) изменение контента элемента
+                input.addEventListener('input', () => {
+                    paragraph.textContent = input.value;
+                });
+                // Функция, производящая какое-либо действие
+                function showAlert() {
+                    alert('Функция сработала!');
+                }
+                // Подключение функции к элементу
+                button.addEventListener('click', showAlert);
+            </script>
     </div>
     </body>
     <footer class="end-border">
