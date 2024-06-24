@@ -4,7 +4,7 @@
         <meta charset="utf-8"> <!--Мета-тег. Кодировка страницы-->
         <title>Главная страница</title>
         <link rel="stylesheet" href="style.css">
-        <!-- <script src="script.js" defer></script> -->
+        <script src="script.js" defer></script>
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
@@ -133,6 +133,91 @@
                 <button id="myButton">Нажми меня</button><br>
                 <input type="text" id="myInput" placeholder="Введите текст">
                 <p id="paragraph">Этот текст будет изменен</p>
+                <!-- Переменные -->
+    <div class="input-group">
+        <label for="nameInput">Введите ваше имя:</label>
+        <input type="text" id="nameInput">
+        <button onclick="showName()">Показать имя</button>
+    </div>
+
+    <!-- Типы данных -->
+    <div class="input-group">
+        <button onclick="showDataTypes()">Показать типы данных</button>
+    </div>
+
+    <!-- Взаимодействие -->
+    <div class="input-group">
+        <button onclick="showAlert()">Показать alert</button>
+        <button onclick="showPrompt()">Показать prompt</button>
+        <button onclick="showConfirm()">Показать confirm</button>
+    </div>
+
+    <!-- Преобразование типов -->
+    <div class="input-group">
+        <label for="typeInput">Введите строку для преобразования в число:</label>
+        <input type="text" id="typeInput">
+        <button onclick="convertType()">Преобразовать</button>
+    </div>
+
+    <!-- Базовые операторы -->
+    <div class="input-group">
+        <label for="num1">Число 1:</label>
+        <input type="number" id="num1">
+        <label for="num2">Число 2:</label>
+        <input type="number" id="num2">
+        <button onclick="basicMath()">Показать арифметические операции</button>
+    </div>
+
+    <!-- Операторы сравнения -->
+    <div class="input-group">
+        <label for="comp1">Число 1:</label>
+        <input type="number" id="comp1">
+        <label for="comp2">Число 2:</label>
+        <input type="number" id="comp2">
+        <button onclick="compare()">Показать сравнение</button>
+    </div>
+
+    <!-- Условное ветвление -->
+    <div class="input-group">
+        <label for="ageInput">Введите ваш возраст:</label>
+        <input type="number" id="ageInput">
+        <button onclick="checkAge()">Проверить возраст</button>
+    </div>
+
+    <!-- Логические операторы -->
+    <div class="input-group">
+        <button onclick="logicalOperations()">Показать логические операции</button>
+    </div>
+
+    <!-- Операторы нулевого слияния -->
+    <div class="input-group">
+        <label for="nullableInput">Введите значение (оставьте пустым для проверки ??):</label>
+        <input type="text" id="nullableInput">
+        <button onclick="nullishCoalescing()">Проверить ?? оператор</button>
+    </div>
+
+    <!-- Циклы -->
+    <div class="input-group">
+        <button onclick="loopExample()">Показать пример цикла</button>
+    </div>
+
+    <!-- Конструкция "switch" -->
+    <div class="input-group">
+        <label for="colorInput">Введите цвет (red, green, blue):</label>
+        <input type="text" id="colorInput">
+        <button onclick="checkColor()">Проверить цвет</button>
+    </div>
+
+    <!-- Функции -->
+    <div class="input-group">
+        <label for="funcInput">Введите имя для функции:</label>
+        <input type="text" id="funcInput">
+        <button onclick="showFunction()">Показать функцию</button>
+    </div>
+
+    <!-- Результат -->
+    <h2>Результат:</h2>
+    <div id="result"></div>
             </div>
             <script>
                 // Изменение контента определенного элемента
@@ -169,6 +254,149 @@
                 }
                 // Подключение функции к элементу
                 button.addEventListener('click', showAlert);
+                // Функция для отображения введенного имени
+        function showName() {
+            const name = document.getElementById('nameInput').value;
+            document.getElementById('result').textContent = `Ваше имя: ${name}`;
+        }
+
+        // Функция для отображения типов данных
+        function showDataTypes() {
+            let number = 42;
+            let string = "Hello";
+            let boolean = true;
+            let obj = { key: "value" };
+            let array = [1, 2, 3];
+            let func = function() {};
+            let und = undefined;
+            let nll = null;
+            let sym = Symbol('sym');
+            document.getElementById('result').innerHTML = `
+                <p>Число: ${typeof number}</p>
+                <p>Строка: ${typeof string}</p>
+                <p>Логическое: ${typeof boolean}</p>
+                <p>Объект: ${typeof obj}</p>
+                <p>Массив: ${typeof array}</p>
+                <p>Функция: ${typeof func}</p>
+                <p>Undefined: ${typeof und}</p>
+                <p>Null: ${typeof nll}</p>
+                <p>Символ: ${typeof sym}</p>
+            `;
+        }
+
+        // Взаимодействие с пользователем
+        function showAlert() {
+            alert("Привет, мир!");
+        }
+
+        function showPrompt() {
+            let name = prompt("Введите ваше имя:", "");
+            document.getElementById('result').textContent = `Вы ввели имя: ${name}`;
+        }
+
+        function showConfirm() {
+            let isAdult = confirm("Вам есть 18 лет?");
+            document.getElementById('result').textContent = isAdult ? "Вам 18 или больше" : "Вам меньше 18";
+        }
+
+        // Преобразование типов
+        function convertType() {
+            let str = document.getElementById('typeInput').value;
+            let num = Number(str);
+            document.getElementById('result').textContent = `Преобразованное значение: ${num}`;
+        }
+
+        // Базовые операторы
+        function basicMath() {
+            let num1 = Number(document.getElementById('num1').value);
+            let num2 = Number(document.getElementById('num2').value);
+            document.getElementById('result').innerHTML = `
+                <p>Сложение: ${num1 + num2}</p>
+                <p>Вычитание: ${num1 - num2}</p>
+                <p>Умножение: ${num1 * num2}</p>
+                <p>Деление: ${num1 / num2}</p>
+            `;
+        }
+
+        // Операторы сравнения
+        function compare() {
+            let comp1 = Number(document.getElementById('comp1').value);
+            let comp2 = Number(document.getElementById('comp2').value);
+            document.getElementById('result').innerHTML = `
+                <p>${comp1} > ${comp2}: ${comp1 > comp2}</p>
+                <p>${comp1} < ${comp2}: ${comp1 < comp2}</p>
+                <p>${comp1} >= ${comp2}: ${comp1 >= comp2}</p>
+                <p>${comp1} <= ${comp2}: ${comp1 <= comp2}</p>
+                <p>${comp1} == "${comp2}": ${comp1 == comp2}</p>
+                <p>${comp1} === "${comp2}": ${comp1 === comp2}</p>
+                <p>${comp1} != "${comp2}": ${comp1 != comp2}</p>
+                <p>${comp1} !== "${comp2}": ${comp1 !== comp2}</p>
+            `;
+        }
+
+        // Условное ветвление
+        function checkAge() {
+            let age = Number(document.getElementById('ageInput').value);
+            if (age >= 18) {
+                document.getElementById('result').textContent = "Взрослый";
+            } else {
+                document.getElementById('result').textContent = "Ребенок";
+            }
+        }
+
+        // Логические операторы
+        function logicalOperations() {
+            let a = true;
+            let b = false;
+            document.getElementById('result').innerHTML = `
+                <p>Логическое И: ${a && b}</p>
+                <p>Логическое ИЛИ: ${a || b}</p>
+                <p>Логическое НЕ: ${!a}</p>
+            `;
+        }
+
+        // Операторы нулевого слияния
+        function nullishCoalescing() {
+            let nullableValue = document.getElementById('nullableInput').value;
+            let result = nullableValue ?? "Значение по умолчанию";
+            document.getElementById('result').textContent = `Результат: ${result}`;
+        }
+
+        // Циклы
+        function loopExample() {
+            let result = "";
+            for (let i = 0; i < 5; i++) {
+                result += `Итерация ${i}<br>`;
+            }
+            document.getElementById('result').innerHTML = result;
+        }
+
+        // Конструкция "switch"
+        function checkColor() {
+            let color = document.getElementById('colorInput').value;
+            switch (color) {
+                case "red":
+                    document.getElementById('result').textContent = "Красный";
+                    break;
+                case "green":
+                    document.getElementById('result').textContent = "Зеленый";
+                    break;
+                case "blue":
+                    document.getElementById('result').textContent = "Синий";
+                    break;
+                default:
+                    document.getElementById('result').textContent = "Неизвестный цвет";
+            }
+        }
+
+        // Функции
+        function showFunction() {
+            function greet(name) {
+                return `Привет, ${name}!`;
+            }
+            let name = document.getElementById('funcInput').value;
+            document.getElementById('result').textContent = greet(name);
+        }
             </script>
     </div>
     <footer class="end-border">
